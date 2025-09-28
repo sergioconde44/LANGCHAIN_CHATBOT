@@ -41,6 +41,7 @@ class RAGPipeline:
         self.model = model or init_chat_model(os.getenv(chat_model_env_var), model_provider="google_genai")
         self.model_with_tools = self.model.bind_tools(self.tools)
         self._build_graph()
+        self.config = {"configurable": {"thread_id": "abc123"}}
         
     def _agent(self, state: MessagesState):
         """Generate answer."""
@@ -64,7 +65,10 @@ class RAGPipeline:
             if message.type in ("human", "system")
             or (message.type == "ai" and not getattr(message, "tool_calls", False))
         ]
-
+        
+        print("Conversation")
+        print(conversation_messages
+              )
         prompt = [SystemMessage(system_message_content)] + conversation_messages
         
         # Run
@@ -99,8 +103,9 @@ class RAGPipeline:
         builder.add_edge(START, "agent")
         builder.add_conditional_edges("agent", self._route_tools, ["tools", END])
         builder.add_edge("tools", "agent")
-        
-        self.graph = builder.compile() 
+        memory = MemorySaver()
+
+        self.graph = builder.compile(checkpointer=memory) 
 
     def ask(
         self,
@@ -120,14 +125,10 @@ class RAGPipeline:
         input_messages = [("user", query)]
         result = None
         
-        for chunk in self.graph.stream({"messages": input_messages}):
-            print("Message: ")
-            print(chunk)
+        for chunk in self.graph.stream({"messages": input_messages}, config = self.config):
             if "agent" in chunk and "messages" in chunk["agent"]:
                 result = chunk["agent"]["messages"][-1]
         
-        print("result: ", result)
-
         # Logging interaction metrics if available
         if result is not None:        
             return getattr(result, "content", str(result))
