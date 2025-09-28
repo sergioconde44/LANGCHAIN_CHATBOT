@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from typing import Optional, Any
+import uuid
 
 from langchain.chat_models import init_chat_model
 from langgraph.graph import END, START, StateGraph, MessagesState
@@ -41,7 +42,7 @@ class RAGPipeline:
         self.model = model or init_chat_model(os.getenv(chat_model_env_var), model_provider="google_genai")
         self.model_with_tools = self.model.bind_tools(self.tools)
         self._build_graph()
-        self.config = {"configurable": {"thread_id": "abc123"}}
+        self.config = {"configurable": {"thread_id": str(uuid.uuid4())}}
         
     def _agent(self, state: MessagesState):
         """Generate answer."""
