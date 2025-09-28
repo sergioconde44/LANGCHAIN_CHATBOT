@@ -114,7 +114,7 @@ class BasePreprocessing:
             print("Waiting 1 min for the RPM Limit on Google Embedding free tier")
             time.sleep(60)
             vector_store.add_documents(docs[99:])
-            vector_store.save_local(os.path.join(DATA_DIR, "index.json"))
+            vector_store.save_local(os.path.join(DATA_DIR, "faiss_index"))
             return "Indexed stored" 
         else:
             vector_store = None
