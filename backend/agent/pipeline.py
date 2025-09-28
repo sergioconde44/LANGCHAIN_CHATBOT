@@ -5,6 +5,9 @@ from typing import Optional, Any
 from langchain.chat_models import init_chat_model
 from langgraph.graph import END, START, StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
+from langchain_core.messages import SystemMessage
+from langgraph.checkpoint.memory import MemorySaver
+
 from backend.agent.agent_tools import retrieve
 
 load_dotenv()
@@ -30,17 +33,50 @@ class RAGPipeline:
             chat_model_env_var: Environment variable for chat model name.
         """
         print("Initializing Agent...")
+        
+        with open("backend/agent/prompt.txt", "r", encoding="utf-8") as f:
+            self.prompt = f.read()
+
         self.tools = [retrieve]
         self.model = model or init_chat_model(os.getenv(chat_model_env_var), model_provider="google_genai")
         self.model_with_tools = self.model.bind_tools(self.tools)
         self._build_graph()
         
-    # Step 1: Generate an AIMessage that may include a tool-call to be sent.
     def _agent(self, state: MessagesState):
-        """Generate tool call for retrieval or respond."""
-        response = self.model_with_tools.invoke(state["messages"])
-        # MessagesState appends messages to state instead of overwriting
+        """Generate answer."""
+
+        # Only process the most recent tool message, if any, otherwise use the last message
+        docs_content = None
+        tool_messages = [msg for msg in reversed(state["messages"]) if msg.type == "tool"]
+        if tool_messages:
+            print("Generating response from context...")
+            docs_content = "\n\n".join(getattr(msg, "content", "") for msg in reversed(tool_messages))
+        else:
+            print("Generating response...")
+
+        # Format into prompt
+
+        system_message_content = system_message_content = f"{self.prompt}{docs_content}"
+        
+        conversation_messages = [
+            message
+            for message in state["messages"]
+            if message.type in ("human", "system")
+            or (message.type == "ai" and not getattr(message, "tool_calls", False))
+        ]
+
+        prompt = [SystemMessage(system_message_content)] + conversation_messages
+        
+        # Run
+        response = self.model_with_tools.invoke(prompt)
+
+        # Ensure tool_calls is not set unless a new tool call is needed
+        if hasattr(response, "tool_calls"):
+            if not response.tool_calls:
+                response.tool_calls = None
+
         return {"messages": [response]}
+
 
     def _route_tools(self, state: MessagesState):
         """
