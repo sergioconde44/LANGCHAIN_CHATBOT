@@ -124,16 +124,19 @@ LangGraph’s `MemorySaver` checkpoint stores messages keyed by this UUID, so th
 **Question 1:**
 
 **Q:** ¿Cuántas sesiones de podología están incluidas en Adeslas Go por año?
+
 **A:** En Adeslas Go, tienes un máximo de doce sesiones de podología (tratamientos de quiropodia en consulta) por cada anualidad de seguro.(Referencia: 'Podología. Exclusivamente tratamientos de quiropodia en consulta. Con un máximo de doce sesiones por cada anualidad de seguro.')
 
 **Question 2:**
 
 **Q:** ¿Qué ocurre si no pago la prima de Adeslas Go a tiempo?
+
 **A:** Si no pagas la prima de Adeslas Go a tiempo, las consecuencias varían según si es la primera prima o las sucesivas:Para la primera prima o fracción: Si no ha sido pagada por culpa del Tomador, la Aseguradora tiene derecho a resolver el contrato o a exigir el pago de la prima debida en vía ejecutiva con base en la póliza. Si la prima no ha sido pagada antes de que se produzca el siniestro, la Aseguradora quedará liberada de su obligación, salvo pacto en contrario.Para la segunda o sucesivas primas o fracciones: La cobertura quedará suspendida un mes después del día del vencimiento del recibo.(Referencia: '3.2. La primera prima o fracción de ella, será exigible conforme al artículo 15 de la Ley una vez firmado el contrato; si no hubiera sido pagada por culpa del Tomador, la Aseguradora tiene derecho a resolver el contrato o a exigir el pago de la prima debida en vía ejecutiva con base en la póliza. En todo caso, si la prima no ha sido pagada antes de que se produzca el siniestro, la Aseguradora quedará liberada de su obligación, salvo pacto en contrario. 3.3. En caso de falta de pago de la segunda o sucesivas primas o fracciones de ésta, la cobertura quedará suspendida un mes después del día del vencimiento del recibo')"
 
 **Question 3:**
 
 **Q:** ¿Puedo recibir asistencia psicológica con Adeslas Go? ¿Cuántas sesiones están cubiertas?
+
 **A:** Sí, puedes recibir asistencia psicológica con Adeslas Go. El seguro cubre un máximo de veinte sesiones por cada anualidad de seguro, o cuarenta sesiones en caso de trastornos de la conducta alimentaria. Para ello, se requerirá la prescripción de un especialista en psiquiatría u oncología concertado y la autorización previa de la aseguradora.(Referencia: Adeslas Go, Condiciones Generales Descriptivas de la cobertura, página 15)
 
 ### Example ADESLAS PLENA TOTAL VITAL
@@ -141,11 +144,13 @@ LangGraph’s `MemorySaver` checkpoint stores messages keyed by this UUID, so th
 **Question 1:**
 
 **Q:** ¿Qué tipo de hospitalización cubre Adeslas Plena Total Vital?
+
 **A:** Adeslas Plena Total Vital cubre la hospitalización en clínica u hospital concertado con la Entidad Aseguradora. Esta hospitalización se realizará siempre en habitación individual con cama para un acompañante, a excepción de las hospitalizaciones psiquiátricas, en U.V.I. y neonatológicas. La aseguradora se hará cargo de los gastos derivados de métodos diagnósticos y terapéuticos, tratamientos quirúrgicos (incluyendo gastos de quirófano y medicamentos) y estancias con manutención del enfermo, siempre que estén comprendidos en la cobertura de la póliza. Para ello, será necesaria la previa prescripción de un especialista concertado y autorización escrita de la Aseguradora. Se excluye la asistencia y tratamiento hospitalario por razones de tipo social.(Referencia: ADESLAS PLENA TOTAL: Condiciones Generales Descriptivas de la cobertura 2.6. HOSPITALIZACIÓN)
 
 **Question 2:**
 
 **Q:** ¿Está incluida la cirugía robótica en Adeslas Plena Total Vital?
+
 **A:** Sí, la cirugía robótica está incluida en Adeslas Plena Total Vital, pero exclusivamente para el tratamiento quirúrgico del cáncer de próstata mediante prostatectomía radical, siempre y cuando se cumplan los siguientes criterios: diagnóstico de tumor maligno prostático localizado, PSA menor o igual a 15 ng/ml en el momento de la indicación quirúrgica, y ausencia de afectación extracapsular y/o de vesículas seminales en ecografía transrectal o medios de imagen (tumor estadificado como T1 o T2).Para acceder a esta asistencia, será necesaria la prescripción de un médico o facultativo especialista en urología y/o nefrología del Cuadro Médico, el pago previo de una franquicia de 6.000 euros y la autorización previa de la Aseguradora.(Referencia: 'El empleo de sistemas robóticos en cirugía se incluye exclusivamente para las siguientes indicaciones: · En el tratamiento quirúrgico del cáncer de próstata mediante prostatectomía radical en aquellos casos que cumplan todos los siguientes criterios: 1. Diagnóstico de tumor maligno prostático localizado; 2. PSA menor o igual a 15 ng/ml en el momento de la indicación quirúrgica; 3. Ausencia de afectación extracapsular y/o de vesículas seminales en la ecografía transrectal o medios de imagen (tumor estadificado como T1 o T2);', 'Para acceder a esta asistencia sanitaria será necesaria: - La prescripción por parte de un Médico o Facultativo especialista en urología y/o nefrología del Cuadro Médico. - El pago previo por el Asegurado y a la Aseguradora de una franquicia por importe de 6.000 euros. - La autorización previa emitida por la Aseguradora.')
 
 
@@ -153,10 +158,12 @@ LangGraph’s `MemorySaver` checkpoint stores messages keyed by this UUID, so th
 
 **Question 1:**
 
-**Q:** ¿Cuál de las dos pólizas cubre hospitalización completa, incluyendo cirugía y estancia?
+**Q:** ¿Cuál de las dos pólizas cubre hospitalización completa, incluyendo cirugía y estancia? 
+
 **A:** ADESLAS PLENA TOTAL VITAL cubre la hospitalización completa, incluyendo cirugía y estancia. Esta póliza se hará cargo de los gastos derivados de métodos diagnósticos y terapéuticos, tratamientos quirúrgicos (incluyendo gastos de quirófano y medicamentos) y estancias con manutención del enfermo. La hospitalización se realizará en habitación individual en una clínica u hospital concertado, previa prescripción de un especialista y autorización de la aseguradora.Por otro lado, ADESLAS GO excluye la asistencia sanitaria que precise de hospitalización (ya sea en régimen de ingreso, cirugía ambulatoria u hospital de día) y las intervenciones quirúrgicas.(Referencia: 'ADESLAS PLENA TOTAL VITAL: 2.6. HOSPITALIZACIÓN Cualquier tipo de hospitalización se realizará en clínica u hospital concertado con la Entidad Aseguradora. Para ello será necesaria la previa prescripción de un especialista concertado y autorización escrita de la Aseguradora. La hospitalización se hará siempre en habitación individual que dispondrá de cama para el acompañante excepto en las hospitalizaciones psiquiátricas, en U.V.I. y neonatológicas, y serán por cuenta de la Aseguradora los gastos derivados de la realización de los métodos diagnósticos y terapéuticos, tratamientos quirúrgicos (incluidos gastos de quirófano y medicamentos) y estancias con la manutención del enfermo, comprendidos en la cobertura de la póliza.' y 'ADESLAS GO: A. La asistencia sanitaria que precise de hospitalización, ya sea en régimen de ingreso, cirugía ambulatoria u hospital de día, tanto si se trata de hospitalización programada o derivada de una urgencia. B. Las intervenciones quirúrgicas, inclusive las diagnósticas y/o terapéuticas. Se excluyen las pruebas diagnósticas o tratamientos por complicaciones que pudieran estar directa y/o principalmente causadas por haberse sometido a una intervención, infiltración o tratamiento de carácter puramente estético o cosmético.')"
 
 **Question 2:**
 
 **Q:** ¿Qué diferencias hay entre Adeslas Go y Plena Total Vital en cuanto a cobertura de psicología clínica?
+
 **A:** Ambas pólizas, Adeslas Go y Adeslas Plena Total Vital, ofrecen cobertura de Psicología Clínica con un máximo de veinte sesiones por cada anualidad de seguro, o cuarenta sesiones en caso de trastornos de la conducta alimentaria. En ambos casos, se requiere la prescripción de un especialista en psiquiatría u oncología concertado y la autorización previa de la Aseguradora.La principal diferencia radica en que Adeslas Plena Total Vital especifica una serie de exclusiones para la cobertura de Psicología Clínica, incluyendo: psicoanálisis, hipnosis, test neuropsicológicos y psicométricos, sofrología, narcolepsia ambulatoria, cualquier método de asistencia psicológica no-conductual, la psicoterapia de grupo y la rehabilitación psicosocial. Estas exclusiones no se mencionan en la descripción de la cobertura de Psicología Clínica para Adeslas Go en el contexto proporcionado.(Referencia: 'Adeslas Go - Psicología Clínica: con un máximo de veinte sesiones por cada anualidad de seguro o cuarenta sesiones en caso de trastornos de la conducta alimentaria. Requerirá la pres-cripción de un especialista en psiquiatría u oncología concertado y la autorización previa de' y 'Adeslas Plena Total Vital - Psicología Clínica: con un máximo de veinte sesiones por cada anualidad de seguro o cuarenta sesiones en caso de trastornos de la conducta alimentaria. Requerirá la pres-cripción de un especialista en psiquiatría u oncología concertado y la autorización previa de la Aseguradora. Se excluye el psicoanálisis, hipnosis, test neuropsicológicos y psico-métricos, sofrología, narcolepsia ambulatoria, cualquier método de asistencia psicológi-ca no-conductual, la psicoterapia de grupo y la rehabilitación psicosocial.')"
