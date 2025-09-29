@@ -52,12 +52,11 @@ class RAGPipeline:
         tool_messages = [msg for msg in reversed(state["messages"]) if msg.type == "tool"]
         if tool_messages:
             print("Generating response from context...")
-            docs_content = "\n\n".join(getattr(msg, "content", "") for msg in reversed(tool_messages))
+            docs_content = docs_content = "\n".join(getattr(msg, "content", "") for msg in reversed(tool_messages))
         else:
             print("Generating response...")
 
         # Format into prompt
-
         system_message_content = system_message_content = f"{self.prompt}{docs_content}"
         
         conversation_messages = [
@@ -67,9 +66,6 @@ class RAGPipeline:
             or (message.type == "ai" and not getattr(message, "tool_calls", False))
         ]
         
-        print("Conversation")
-        print(conversation_messages
-              )
         prompt = [SystemMessage(system_message_content)] + conversation_messages
         
         # Run
@@ -79,7 +75,7 @@ class RAGPipeline:
         if hasattr(response, "tool_calls"):
             if not response.tool_calls:
                 response.tool_calls = None
-
+        
         return {"messages": [response]}
 
 

@@ -5,7 +5,7 @@ API_URL = "http://localhost:8000/chat"
 
 def chat_with_bot(message):
     try:
-        response = httpx.post(API_URL, json={"message": message}, timeout=20)
+        response = httpx.post(API_URL, json={"message": message}, timeout=30)
         if response.status_code == 200:
             answer = response.json().get("response", "")
         else:
@@ -21,7 +21,7 @@ with gr.Blocks() as demo:
     clear = gr.Button("Clear")
 
     def respond(user_message, chat_history):
-        answer = chat_with_bot(user_message, chat_history)
+        answer = chat_with_bot(user_message)
         chat_history = chat_history + [[user_message, answer]]
         return "", chat_history
 

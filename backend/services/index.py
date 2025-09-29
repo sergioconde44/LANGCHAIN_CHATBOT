@@ -6,8 +6,7 @@ import time
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from langchain.text_splitter import (
-    RecursiveCharacterTextSplitter,
-    MarkdownHeaderTextSplitter,
+    RecursiveCharacterTextSplitter
 )
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
@@ -100,7 +99,7 @@ class BasePreprocessing:
                 with open(fpath, "r", encoding="utf-8") as f:
                     text = f.read()
                 all_splits = [
-                    Document(page_content=t, metadata={"source": f"{fname}_chunk_{i}"}) 
+                    Document(page_content=t, metadata={"filename": os.path.splitext(fname)[0], "chunk": i})
                     for i, t in enumerate(self.splitter.split_text(text))
                     ]
                 docs.extend(all_splits)

@@ -21,14 +21,19 @@ if os.path.exists("data/faiss_index"):
 else:
     print("No index found")    
 
-@tool(response_format="content_and_artifact")
+@tool(response_format="content")
 def retrieve(query: str):
     """Retrieve information related to a query."""
     
     print("retrieving context...")
-    retrieved_docs = vector_store.similarity_search(query, k=2)
-    serialized = "\n\n".join(
-        (f"Source: {doc.metadata}\nContent: {doc.page_content}")
-        for doc in retrieved_docs
-    )
-    return serialized, retrieved_docs
+    adeslas_go_docs = vector_store.similarity_search(query, k=2, filter={"filename": "adeslas-go"})
+    adeslas_plena_docs = vector_store.similarity_search(query, k=2, filter={"filename": "adeslas-plena-total-vital"})
+
+    serialized = "ADESLAS GO: \n---\n" + "\n---\n".join(
+        (f"{doc.page_content}")
+        for doc in adeslas_go_docs
+    ) + "\n\nADESLAS PLENA TOTAL VITAL: \n---\n" + "\n---\n".join(
+        (f"{doc.page_content}")
+        for doc in adeslas_plena_docs
+    ) 
+    return serialized
