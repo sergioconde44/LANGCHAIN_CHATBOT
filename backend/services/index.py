@@ -15,7 +15,6 @@ import pdfplumber
 load_dotenv()
 
 DATA_DIR = "data"
-DOCUMENTS_DIR = "resources"
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
